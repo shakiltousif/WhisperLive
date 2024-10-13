@@ -117,11 +117,12 @@ class ClientManager:
         Returns:
             True if the client's connection time has exceeded the maximum limit, False otherwise.
         """
-        elapsed_time = time.time() - self.start_times[websocket]
-        if elapsed_time >= self.max_connection_time:
-            self.clients[websocket].disconnect()
-            logging.warning(f"Client with uid '{self.clients[websocket].client_uid}' disconnected due to overtime.")
-            return True
+        # Turned off for unlimited connections
+        # elapsed_time = time.time() - self.start_times[websocket]
+        # if elapsed_time >= self.max_connection_time:
+        #     self.clients[websocket].disconnect()
+        #     logging.warning(f"Client with uid '{self.clients[websocket].client_uid}' disconnected due to overtime.")
+        #     return True
         return False
 
 
