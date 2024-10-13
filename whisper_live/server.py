@@ -99,11 +99,12 @@ class ClientManager:
         Returns:
             True if the server is full, False otherwise.
         """
-        if len(self.clients) >= self.max_clients:
-            wait_time = self.get_wait_time()
-            response = {"uid": options["uid"], "status": "WAIT", "message": wait_time}
-            websocket.send(json.dumps(response))
-            return True
+        # Turned off for unlimited connections
+        # if len(self.clients) >= self.max_clients:
+        #     wait_time = self.get_wait_time()
+        #     response = {"uid": options["uid"], "status": "WAIT", "message": wait_time}
+        #     websocket.send(json.dumps(response))
+        #     return True
         return False
 
     def is_client_timeout(self, websocket):
