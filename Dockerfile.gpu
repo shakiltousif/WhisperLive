@@ -26,7 +26,7 @@ COPY whisper_live /app/whisper_live
 COPY run_server.py /app
 
 # Expose port 9090
-EXPOSE 9090
+EXPOSE 443
 
 # Run the server
 CMD ["python", "run_server.py"]
